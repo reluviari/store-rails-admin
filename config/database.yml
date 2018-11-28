@@ -83,5 +83,4 @@ test:
 #
 production:
   <<: *default
-  database: reluviaris-rails-admin_production
-  password: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['DATABASE_URL'] %>
