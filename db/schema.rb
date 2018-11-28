@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2018_05_30_194039) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 2018_05_30_194039) do
     t.string "neighborhood"
     t.string "street"
     t.string "number"
-    t.integer "client_id"
+    t.bigint "client_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -53,7 +56,7 @@ ActiveRecord::Schema.define(version: 2018_05_30_194039) do
     t.string "document"
     t.string "email"
     t.string "phone"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.text "notes"
     t.integer "status"
     t.datetime "created_at", null: false
@@ -62,9 +65,9 @@ ActiveRecord::Schema.define(version: 2018_05_30_194039) do
   end
 
   create_table "comissions", force: :cascade do |t|
-    t.integer "sale_id"
+    t.bigint "sale_id"
     t.decimal "value"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.integer "status"
     t.text "note"
     t.datetime "created_at", null: false
@@ -84,9 +87,9 @@ ActiveRecord::Schema.define(version: 2018_05_30_194039) do
   end
 
   create_table "product_quantities", force: :cascade do |t|
-    t.integer "product_id"
+    t.bigint "product_id"
     t.integer "quantity"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_product_quantities_on_product_id"
@@ -102,10 +105,10 @@ ActiveRecord::Schema.define(version: 2018_05_30_194039) do
   end
 
   create_table "sales", force: :cascade do |t|
-    t.integer "client_id"
+    t.bigint "client_id"
     t.date "sale_date"
-    t.integer "user_id"
-    t.integer "discount_id"
+    t.bigint "user_id"
+    t.bigint "discount_id"
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -124,4 +127,13 @@ ActiveRecord::Schema.define(version: 2018_05_30_194039) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "addresses", "clients"
+  add_foreign_key "clients", "users"
+  add_foreign_key "comissions", "sales"
+  add_foreign_key "comissions", "users"
+  add_foreign_key "product_quantities", "products"
+  add_foreign_key "product_quantities", "users"
+  add_foreign_key "sales", "clients"
+  add_foreign_key "sales", "discounts"
+  add_foreign_key "sales", "users"
 end
