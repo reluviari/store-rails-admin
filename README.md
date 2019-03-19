@@ -1,3 +1,7 @@
+## Link to App
+
+You can visit the app by clicking this link: [Access App](https://reluviaris-rails-admin.herokuapp.com/).
+
 # Reluviaris Gem Rails Admin
 
 Learning Gem Rails Admin with RAILS 5.
