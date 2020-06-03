@@ -1,10 +1,13 @@
-## Link to App
+<h1 align="center">
+  <strong>RAILS 5 with gem rails_admin</strong>
+</h1> 
 
+<p align="center">
+  Learning Gem rails_admin with RAILS 5
+</p> 
+
+## 📌 Link to App
 You can visit the app by clicking this link: [Access App](https://reluviaris-rails-admin.herokuapp.com/admin).
-
-# Reluviaris Gem Rails Admin
-
-Learning Gem Rails Admin with RAILS 5.
 
 ## Ruby version: 
 
@@ -31,14 +34,6 @@ Learning Gem Rails Admin with RAILS 5.
 ```sh
  $ rails db:migrate
 ```
-## Database initialization
-
-## How to run the test suite
-
-## Services (job queues, cache servers, search engines, etc.): 
-
-## Deployment instructions
-
 ### Deploy Heroku
 
 1. Primeiro (via heroku Cli) criamos APP no heroku. Rode no console no diretório do projeto:
@@ -63,14 +58,7 @@ Learning Gem Rails Admin with RAILS 5.
  $ git push heroku master
 ```
 
-## Todos
+## 🙋‍♂️ Author
 
- - Write MORE Tests
+* **Danilo Dias** - [reluviari](https://github.com/reluviari)
 
-
-License
-----
-
-MIT (change)
-
-.
